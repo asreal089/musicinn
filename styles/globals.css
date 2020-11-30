@@ -623,6 +623,9 @@ pre code {
 	margin-right: auto;
 	margin-left: auto;
 }
+.mycard {
+	padding: 5px;
+}
 
 .row {
 	display: -ms-flexbox;
