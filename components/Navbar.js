@@ -1,4 +1,5 @@
 import {Nav} from 'react-bootstrap'
+import SingInButton from '../components/buttons/SingInButton'
 
 
 export default function Navbar() {
@@ -18,11 +19,9 @@ export default function Navbar() {
               <Nav.Item>
                 <Nav.Link eventKey="link-2">Link</Nav.Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="disabled" disabled>
-                  Disabled
-                </Nav.Link>
-              </Nav.Item>
+              
+                <SingInButton />
+                
             </Nav>
         </div>
 
