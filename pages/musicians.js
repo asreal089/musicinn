@@ -24,6 +24,7 @@ export default function musicians() {
               
             </Head>
             <main className={styles.main}>
+                <h2>Esses são os músicos disponiveis no momento.</h2>
                 <div>
                     <MyMusicianCard musico={musico}/>
                     <MyMusicianCard musico={musico}/>
