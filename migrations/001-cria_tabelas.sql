@@ -1,18 +1,18 @@
 -- Up
 CREATE TABLE usuario(
-    usuario_id INTERGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER PRIMARY KEY,
     nome TEXT,
     email TEXT
 );
 
 CREATE TABLE musico(
-    musico_id INTERGER PRIMARY KEY AUTOINCREMENT,
+    musico_id INTEGER PRIMARY KEY,
     nome TEXT,
     email TEXT,
     preco_hora NUMBER,
     bio TEXT,
     demo_video_url TEXT,
-    demo_video_legenda TEXT,
+    demo_video_legenda TEXT
 );
 
 
@@ -22,7 +22,7 @@ CREATE TABLE favorito(
 );
 
 CREATE TABLE evento(
-    evento_id INTERGER PRIMARY KEY AUTOINCREMENT,
+    evento_id INTEGER PRIMARY KEY,
     usuario_id REFERENCES musico(usuario_id),
     musico_id REFERENCES musico(musico_id),
     data REAL,
@@ -35,6 +35,15 @@ CREATE TABLE musica(
     autor TEXT,
     musica_nome TEXT
 );
+
+INSERT INTO usuario(nome, email) VALUES('peter parker', 'spider@man');
+INSERT INTO usuario(nome, email) VALUES('bruce wayne', 'bat@man');
+INSERT INTO usuario(nome, email) VALUES('klark kent', 'super@man');
+
+INSERT INTO musico(nome, email, preco_hora, bio, demo_video_url, demo_video_legenda) VALUES ('bruce dickson', 'iron@maiden.com', 1000, 'Paul Bruce Dickinson é um cantor, radialista, escritor, empresário, palestrante, historiador, mestre cervejeiro e piloto, mais conhecido por seu trabalho como vocalista da banda britânica Iron Maiden.','https://www.youtube.com/watch?v=vXClBjNxiOA','tears of the dragon');
+INSERT INTO musico(nome, email, preco_hora, bio, demo_video_url, demo_video_legenda) VALUES ('James LaBrie', 'dream@theater.com', 1000, 'Kevin James LaBrie é um cantor e compositor canadense, mais conhecido por ser vocalista da banda de metal progressivo Dream Theater','https://www.youtube.com/watch?v=34HK44CeSMg','in the name of the god');
+INSERT INTO musico(nome, email, preco_hora, bio, demo_video_url, demo_video_legenda) VALUES ('martin garrix', 'martin@garrix.com', 4000, 'Martijn Gerard Garritsen, mais conhecido pelo nome artístico de Martin Garrix, é um produtor, DJ e remixer neerlandês Ele é especialmente conhecido pela canção "Animals", que atingiu o topo de listas musicais em mais de dez países e conta com mais de 1 bilhão de visualizações no YouTube','https://www.youtube.com/watch?v=g_s17HMFaug','tomorowland');
+
 
 -- Down 
 DROP TABLE musica;
