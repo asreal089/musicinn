@@ -22,6 +22,15 @@ async function setup() {
 
     const musico = await db.all('SELECT * FROM musico');
     console.log('TODOS OS MUSICOS', JSON.stringify(musico, null, 2));
+
+    const favorito = await db.all('SELECT * FROM favorito');
+    console.log('TODOS OS FAVORITOS', JSON.stringify(favorito, null, 2));
+
+    const evento = await db.all('SELECT * FROM evento');
+    console.log('TODOS OS EVENTOS', JSON.stringify(evento, null, 2));
+
+    const musica = await db.all('SELECT * FROM musica');
+    console.log('TODOS AS MUSICAS', JSON.stringify(musica, null, 2));
 }
 
 setup();

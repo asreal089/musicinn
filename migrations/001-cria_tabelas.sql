@@ -44,6 +44,14 @@ INSERT INTO musico(nome, email, preco_hora, bio, demo_video_url, demo_video_lege
 INSERT INTO musico(nome, email, preco_hora, bio, demo_video_url, demo_video_legenda) VALUES ('James LaBrie', 'dream@theater.com', 1000, 'Kevin James LaBrie é um cantor e compositor canadense, mais conhecido por ser vocalista da banda de metal progressivo Dream Theater','https://www.youtube.com/watch?v=34HK44CeSMg','in the name of the god');
 INSERT INTO musico(nome, email, preco_hora, bio, demo_video_url, demo_video_legenda) VALUES ('martin garrix', 'martin@garrix.com', 4000, 'Martijn Gerard Garritsen, mais conhecido pelo nome artístico de Martin Garrix, é um produtor, DJ e remixer neerlandês Ele é especialmente conhecido pela canção "Animals", que atingiu o topo de listas musicais em mais de dez países e conta com mais de 1 bilhão de visualizações no YouTube','https://www.youtube.com/watch?v=g_s17HMFaug','tomorowland');
 
+INSERT INTO favorito(usuario_id, musico_id) VALUES(1, 2);
+INSERT INTO favorito(usuario_id, musico_id) VALUES(1, 3);
+
+INSERT INTO evento(usuario_id, musico_id, data, duracao, preco) VALUES(1, 2, datetime('now','localtime'),1,1000);
+INSERT INTO evento(usuario_id, musico_id, data, duracao, preco) VALUES(1, 3, datetime('now','localtime'),2,4000);
+
+INSERT INTO musica(evento_id, autor, musica_nome) VALUES(1, 'dream theater','Endless sacrifice');
+INSERT INTO musica(evento_id, autor, musica_nome) VALUES(1, 'dream theater','In the name of god');
 
 -- Down 
 DROP TABLE musica;
