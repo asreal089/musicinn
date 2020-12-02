@@ -591,7 +591,7 @@ pre code {
 	margin-right: auto;
 	margin-left: auto;
 }
-
+/*
 @media (min-width: 576px) {
 	.container {
 		max-width: 540px;
@@ -615,7 +615,7 @@ pre code {
 		max-width: 1140px;
 	}
 }
-
+*/
 .container-fluid {
 	width: 100%;
 	padding-right: 15px;
@@ -929,7 +929,7 @@ pre code {
 .offset-11 {
 	margin-left: 91.666667%;
 }
-
+/*
 @media (min-width: 576px) {
 	.col-sm {
 		-ms-flex-preferred-size: 0;
@@ -1899,7 +1899,7 @@ pre code {
 		border: 0;
 	}
 }
-
+*/
 .table-responsive {
 	display: block;
 	width: 100%;
@@ -1926,13 +1926,13 @@ pre code {
 	border-radius: 0.25rem;
 	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
+/*
 @media screen and (prefers-reduced-motion: reduce) {
 	.form-control {
 		transition: none;
 	}
 }
-
+*/
 .form-control::-ms-expand {
 	background-color: transparent;
 	border: 0;
