@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MyNavbar from '../components/MyNavbar'
 import MyMusicianCard from '../components/MyMusicianCard'
+import fetch from 'isomorphic-unfetch';
 
 export default function musicians({allMusicos}) {
     
@@ -36,7 +37,7 @@ export default function musicians({allMusicos}) {
 }
 
 musicians.getInitialProps = async (ctx) =>{
-  const res = await fetch('https://musicinn.vercel.app/api/musico')
+  const res = await fetch('http://localhost:3000/api/musico')
   const json = await res.json() 
   return {
     allMusicos: json
