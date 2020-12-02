@@ -11,7 +11,7 @@ async function openDb() {
 export default async function getMusicos(req, res){
     if(req.method =='GET'){
         const db = await openDb();
-        const musico = await db.all('SELECT * FROM musico');
-        res.json(musico);
+        const musicos = await db.all('SELECT * FROM musico');
+        res.json(musicos);
     }
 }
