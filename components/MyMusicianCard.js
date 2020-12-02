@@ -17,7 +17,7 @@ export default function MyMusicianCard(props) {
                 </Card.Text>
 
                 <Card.Text>
-                  Preço por Hora: R$ {props.musico.preco}
+                  Preço por Hora: R$ {props.musico.preco_hora}
                 </Card.Text>
 
 
