@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import MyNavbar from '../components/MyNavbar'
 import MyMusicianCard from '../components/MyMusicianCard'
 import fetch from 'isomorphic-unfetch';
+import axios from 'axios'
 
 export default function musicians({allMusicos}) {
     
@@ -36,8 +37,9 @@ export default function musicians({allMusicos}) {
 }
 
 musicians.getInitialProps = async (ctx) =>{
-  const res = await fetch('http://localhost:3000/api/musico')
-  const json = await res.json() 
+  const axioscfg=ctx.req?{baseURL:'http://localhost:3000'}:{}
+  const res = await axios.get('/api/musico', axioscfg)
+  const json = await res.data 
   return {
     allMusicos: json
   }
