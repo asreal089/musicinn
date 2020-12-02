@@ -19,11 +19,10 @@ export default function musicians({allMusicos}) {
             <main className={styles.main}>
                 <h2>Esses são os músicos disponiveis no momento.</h2>
                 <div>
-                    {// allMusicos.map(({ musico }) => (<p>olar</p>))
-                      }
-                      <MyMusicianCard musico={allMusicos[0]}/>
-                      <MyMusicianCard musico={allMusicos[1]}/>
-                      <MyMusicianCard musico={allMusicos[2]}/>
+                    { allMusicos.map((musico) => (
+                    <MyMusicianCard key={musico.musico_id} musico={musico}/>
+                    ))}
+                     
                 </div>
             </main>
 
