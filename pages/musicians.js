@@ -9,7 +9,7 @@ export default function musicians() {
         nome: "Bruce Dickson",
         email:"bd@ironmaiden.com",
         bio:"Olá eu sou musico raiz que adora tocar e cantar metal !..!",
-        demo_video_url: 'https://www.youtube.com/watch?v=nzwV9cW1aaI',
+        demo_video_url: 'https://www.youtube.com/embed/nzwV9cW1aaI',
         preco: 1000.00
     };
     return(
