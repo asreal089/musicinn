@@ -36,7 +36,7 @@ export default function musicians({allMusicos}) {
 }
 
 musicians.getInitialProps = async (ctx) =>{
-  const res = await fetch('http://localhost:3000/api/musico')
+  const res = await fetch('https://musicinn.vercel.app/api/musico')
   const json = await res.json() 
   return {
     allMusicos: json
