@@ -36,8 +36,8 @@ export default function musicians({allMusicos}) {
 }
 
 musicians.getInitialProps = async (ctx) =>{
-  //const axioscfg=ctx.req?{baseURL:'http://localhost:3000'}:{}
-  const res = await axios.get('/api/musico')
+  const axioscfg=ctx.req?{baseURL:'http://localhost:3000'}:{}
+  const res = await axios.get('/api/musico', axioscfg)
   console.log(res);
 
   return {
