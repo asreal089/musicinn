@@ -1,4 +1,4 @@
-import databaseConnect from '../../databaseConnect'
+import databaseConnect from '../../connectToDatabase'
 
 export default async function getFavoritos(req, res){
     if(req.method =='GET'){

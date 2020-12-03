@@ -1,4 +1,4 @@
-import databaseConnect from '../../databaseConnect'
+import databaseConnect from '../../connectToDatabase'
 
 export default async function getEventos(req, res){
     if(req.method =='GET'){
