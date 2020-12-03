@@ -2,14 +2,14 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MyNavbar from '../components/MyNavbar'
 import MyMusicianCard from '../components/MyMusicianCard'
+import { Container } from 'react-bootstrap'
 import fetch from 'isomorphic-unfetch';
 import axios from 'axios'
 
 export default function musicians({allMusicos}) {
     
     return(
-        <div className={styles.main_container}>
-
+        <Container className={styles.main_container} >
           <MyNavbar />
           <div className={styles.container} >
             <Head>
@@ -32,7 +32,7 @@ export default function musicians({allMusicos}) {
                 4ATech<img src="/4Atech.png" alt="4ATech Logo" className={styles.logo} />
             </footer>
           </div>
-        </div>
+        </Container>
     );
 }
 
