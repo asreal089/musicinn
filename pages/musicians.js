@@ -38,7 +38,7 @@ export default function musicians({allMusicos}) {
 }
 
 musicians.getInitialProps = async (ctx) =>{
-  const axioscfg=ctx.req?{baseURL:'http://localhost:3000'}:{}
+  const axioscfg=ctx.req?{baseURL:'https://musicinn.vercel.app'}:{}
   const res = await axios.get('/api/musico', axioscfg)
 
   return {
