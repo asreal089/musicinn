@@ -21,7 +21,6 @@ async function connectToDatabase(){
 export default async function getMusicos(req, res){
   const db  = await connectToDatabase();
   const musicos = await db.collection('musico').find({}).toArray();
-  console.log(musicos);
   if(req.method =='GET'){    
     res.json({musicos});      
   }

@@ -1,37 +1,34 @@
-import {Card, Image, Button, ListGroup} from 'react-bootstrap'
+import {Card, Image, Button, ListGroup, Row, Col} from 'react-bootstrap'
 import Iframe from 'react-iframe'
 
 
 
 export default function MyMusicianCard(props) {
     return(
-        <div className="mycard">
-            <Card style={{ width: '36rem' }}>
+      <>
+          <Col>
+          <Card>
               <Card.Body>
-                <Card.Title>{props.musico.nome}</Card.Title>
-                <Iframe 
-                url={props.musico.demo_video_url} 
+                <Card.Title style={{fontWeight: "bold", textTransform: "capitalize"}}>{props.musico.nome}</Card.Title>
+                <Iframe
+                className="embed-responsive-item mx-auto"
+                url={props.musico.demo_video_url}
+                allowFullScreen
                 />
-                <Card.Text>
+                <Card.Text style={{marginTop: "8px"}}>
                   {props.musico.bio}
                 </Card.Text>
 
                 <Card.Text>
-                  Preço por Hora: R$ {props.musico.preco_hora}
+                  Preço por Hora: <b>R$ {props.musico.preco_hora}</b>
                 </Card.Text>
-
-
-                
-                
-                
                 <Button variant="primary">Adicionar aos favoritos</Button>
                 <br />
                 <br />
                 <Button variant="primary">Marcar evento</Button>
               </Card.Body>
             </Card>
-
-        </div>
-
+          </Col>
+        </>
     );
 }
