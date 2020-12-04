@@ -8,7 +8,6 @@ import { Container, Row } from 'react-bootstrap'
 import axios from 'axios'
 
 export default function musicians({allMusicos}) {
-    
     return(
         <Container className={styles.main_container} >
           <MyNavbar />
@@ -23,7 +22,7 @@ export default function musicians({allMusicos}) {
                 <h3 className="text-center" style={{marginTop: "32px"}}>Esses são os músicos disponiveis no momento:</h3>
                 <Row>
                   { allMusicos.map((musico) => (
-                  <MyMusicianCard key={musico.musico_id} musico={musico}/>
+                  <MyMusicianCard key={musico._id} musico={musico}/>
                   ))}
                 </Row>
               </Container>
