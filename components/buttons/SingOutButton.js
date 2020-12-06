@@ -1,10 +1,10 @@
 import {Button} from 'react-bootstrap'
 import FeatherIcon from 'feather-icons-react'
 
-export default function signInButton() {
+export default function signOutButton() {
     return(
-        <Button variant="primary">
-          Sign In{' '}
+        <Button variant="danger">
+          Sign Out{' '}
           <FeatherIcon icon='log-out'/>  
         </Button>
     );
