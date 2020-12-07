@@ -1,12 +1,12 @@
 import {Navbar,Nav} from 'react-bootstrap'
-import SingInButton from './buttons/SingInButton'
-import SingOutButton from './buttons/SingOutButton'
+import {Button} from 'react-bootstrap'
+import FeatherIcon from 'feather-icons-react'
 import {signIn, signOut, useSession} from 'next-auth/client'
 
 export default function MyNavbar() {
 
   const [ session, loading ] = useSession()
-  
+
   return(
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -20,10 +20,16 @@ export default function MyNavbar() {
               <Nav>
                 <Nav.Link href="/myaccount">Sua Conta</Nav.Link>
                 {!session && <>
-                  <SingInButton onClick={signIn} />
+                  <Button variant="primary" onClick={signIn}>
+                    Sign In{' '}
+                    <FeatherIcon icon='log-out'/>  
+                  </Button>
                 </>}
                 {session && <>
-                  <SingOutButton onClick={signOut}/>
+                  <Button variant="primary" onClick={signOut}>
+                    Sign In{' '}
+                    <FeatherIcon icon='log-out'/>  
+                  </Button>
                 </>}
               </Nav>
             </Navbar.Collapse>
