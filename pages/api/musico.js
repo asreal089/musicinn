@@ -12,7 +12,7 @@ export default async function getMusicos(req, res){
 
   if(req.method =='POST'){
     const novoMusico = req.body;
-    db.collection('musico').insert(novoMusico);
+    db.collection('musico').insertOne(novoMusico);
     res.json(novoMusico);
   }
 }

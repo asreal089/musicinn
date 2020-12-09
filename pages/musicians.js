@@ -3,8 +3,6 @@ import styles from '../styles/Home.module.css'
 import MyNavbar from '../components/MyNavbar'
 import MyMusicianCard from '../components/MyMusicianCard'
 import { Container, Row } from 'react-bootstrap'
-
-
 import axios from 'axios'
 
 export default function musicians({allMusicos}) {
@@ -21,7 +19,7 @@ export default function musicians({allMusicos}) {
               <Container fluid>
                 <h3 className="text-center" style={{marginTop: "32px"}}>Esses são os músicos disponiveis no momento:</h3>
                 <Row>
-                  { allMusicos.map((musico) => (
+                  {allMusicos && allMusicos.map((musico) => (
                   <MyMusicianCard key={musico._id} musico={musico}/>
                   ))}
                 </Row>

@@ -1,9 +1,22 @@
-import {Card, Image, Button, ListGroup, Row, Col} from 'react-bootstrap'
+import {Card, Button, Col} from 'react-bootstrap'
 import Iframe from 'react-iframe'
-
+import axios from 'axios'
 
 
 export default function MyMusicianCard(props) {
+    async function addToFavoritos(){
+      console.log('cai aqui')
+      const axioscfg={ baseURL:process.env.SITE }
+      const res = await axios.post('/api/favorito', { "nome": props.musico.nome,
+      "email": props.musico.email,
+      "preco_hora": props.musico.preco_hora,
+      "bio": props.musico.bio,
+      "demo_video_url": props.musico.demo_video_url }, axioscfg);
+
+      return {
+        allMusicos: res.data.musicos
+      }
+    }
     return(
       <>
           <Col>
@@ -22,7 +35,7 @@ export default function MyMusicianCard(props) {
                 <Card.Text>
                   Preço por Hora: <b>R$ {props.musico.preco_hora}</b>
                 </Card.Text>
-                <Button variant="primary">Adicionar aos favoritos</Button>
+                <Button onClick={addToFavoritos} variant="primary">Adicionar aos favoritos</Button>
                 <br />
                 <br />
                 <Button variant="primary">Marcar evento</Button>
