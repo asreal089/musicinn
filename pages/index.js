@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MyNavbar from '../components/MyNavbar'
+import { Container, Row } from 'react-bootstrap'
 
 
 export default function Home() {
@@ -15,8 +16,10 @@ export default function Home() {
           
         </Head>
         <main className={styles.main}>
-          <h1> Bem vindo ao MusicInn<br />A sua casa de shows online</h1>
-          <p> Entre para poder entre para poder contar musicos e agendar eventos.</p>
+          <Container fluid>
+            <h1 style={{textAlign: "center", margin: '32px'}}> Bem vindo ao MusicInn <br></br> A sua casa de shows online</h1>
+            <h5 style={{textAlign: 'center'}}> Entre ou faça seu cadastro para poder encontar músicos e agendar eventos.</h5>
+          </Container>
         </main>
 
         <footer className={styles.footer}>

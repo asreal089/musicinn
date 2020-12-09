@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import MyNavbar from '../components/MyNavbar'
+import { Container, Row } from 'react-bootstrap'
 
 export default function myaccount() {
     return(
@@ -14,9 +15,10 @@ export default function myaccount() {
               
             </Head>
             <main className={styles.main}>
-                <div>
-                    <h2>olar essa é a pagina da sua conta</h2>
-                </div>
+              <Container fluid>
+                <h2 style={{margin: '32px'}}>Minha conta</h2>
+                <p>Em breve mais detalhes sobre sua conta</p>
+              </Container>
             </main>
 
             <footer className={styles.footer}>
