@@ -22,7 +22,7 @@ export default function favorites({allFavorites}) {
               <Row>
 
                 {allFavorites && allFavorites.map((favorito) => (
-                <MyMusicianCard key={favorito._id} musico={favorito}/>
+                <MyMusicianCard key={favorito._id} musico={favorito} is_favorite={true}/>
                 ))}
               </Row>
             </Container>

@@ -1,4 +1,5 @@
-import { connectToDatabase } from "../../util/mongodb";
+import { connectToDatabase } from "../../../util/mongodb";
+const ObjectId = require('mongodb').ObjectID;
 
 export default async function getMusicos(req, res){
 
@@ -11,7 +12,9 @@ export default async function getMusicos(req, res){
 
   if(req.method =='POST'){
     const novoFavorito = req.body;
-    db.collection('favorito').insertOne(novoFavorito);
+    await db.collection('favorito').insertOne(novoFavorito);
     res.json(novoFavorito);
   }
+
+  
 }

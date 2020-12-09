@@ -17,6 +17,17 @@ export default function MyMusicianCard(props) {
         allMusicos: res.data.musicos
       }
     }
+
+    async function removeFavorite(){
+      console.log(props.musico._id)
+      const axioscfg={ baseURL:process.env.SITE }
+      const res = await axios.delete('/api/favorito/'+ props.musico._id, axioscfg);
+
+      return{
+        allMusicos: res.data.musicos
+      }
+    }
+
     return(
       <>
           <Col>
@@ -35,7 +46,13 @@ export default function MyMusicianCard(props) {
                 <Card.Text>
                   Preço por Hora: <b>R$ {props.musico.preco_hora}</b>
                 </Card.Text>
+                {! props.is_favorite &&
                 <Button onClick={addToFavoritos} variant="primary">Adicionar aos favoritos</Button>
+                }
+                {
+                  props.is_favorite &&
+                  <Button onClick={removeFavorite} variant="danger">Remover dos Favoritos</Button>
+                }
                 <br />
                 <br />
                 <Button variant="primary">Marcar evento</Button>
