@@ -10,4 +10,8 @@ export default async function deleteMusicos(req, res){
         await db.collection('favorito').deleteOne({_id:  ObjectId( id )})
         res.json({});
     }
+    if(req.method =='GET'){
+        let favorito = await db.collection('favorito').findOne({_id:  ObjectId( id )})
+        res.json({favorito});
+    }
 }

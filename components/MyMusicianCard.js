@@ -29,6 +29,10 @@ export default function MyMusicianCard(props) {
       }
     }
 
+    async function scheduleEvent(){
+      router.push('/event/'+props.musico._id)  
+    }
+
     return(
       <>
           <Col>
@@ -51,12 +55,15 @@ export default function MyMusicianCard(props) {
                 <Button onClick={addToFavoritos} variant="primary">Adicionar aos favoritos</Button>
                 }
                 {
-                  props.is_favorite &&
-                  <Button onClick={removeFavorite} variant="danger">Remover dos Favoritos</Button>
+                  props.is_favorite && (
+                     <div>
+                       <Button onClick={removeFavorite} variant="danger">Remover dos Favoritos</Button>
+                       <br />
+                       <br />
+                       <Button onClick={scheduleEvent} variant="primary">Marcar evento</Button>
+                     </div>
+                  )
                 }
-                <br />
-                <br />
-                <Button variant="primary">Marcar evento</Button>
               </Card.Body>
             </Card>
           </Col>
