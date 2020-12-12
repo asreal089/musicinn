@@ -1,28 +1,29 @@
 import {Card, Button, Col} from 'react-bootstrap'
+import { useCallback, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Iframe from 'react-iframe'
 import axios from 'axios'
 
 
 export default function MyMusicianCard(props) {
+    const router = useRouter()
     async function addToFavoritos(){
-      console.log('cai aqui')
       const axioscfg={ baseURL:process.env.SITE }
       const res = await axios.post('/api/favorito', { "nome": props.musico.nome,
       "email": props.musico.email,
       "preco_hora": props.musico.preco_hora,
       "bio": props.musico.bio,
       "demo_video_url": props.musico.demo_video_url }, axioscfg);
-
+      router.push('/favorites')
       return {
         allMusicos: res.data.musicos
       }
     }
 
     async function removeFavorite(){
-      console.log(props.musico._id)
       const axioscfg={ baseURL:process.env.SITE }
       const res = await axios.delete('/api/favorito/'+ props.musico._id, axioscfg);
-
+      router.push('/favorites')
       return{
         allMusicos: res.data.musicos
       }
