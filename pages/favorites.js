@@ -7,7 +7,6 @@ import { useCallback, useEffect } from 'react'
 import axios from 'axios'
 
 export default function favorites({allFavorites}) {
-    
     return(
       <Container className={styles.main_container} >
         <MyNavbar />
