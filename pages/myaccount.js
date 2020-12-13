@@ -5,7 +5,7 @@ import { Container, Row } from 'react-bootstrap'
 
 export default function myaccount() {
     return(
-        <div className={styles.main_container}>
+        <Container className={styles.main_container} >
 
           <MyNavbar />
           <div className={styles.container} >
@@ -26,6 +26,9 @@ export default function myaccount() {
                 4ATech<img src="/4Atech.png" alt="4ATech Logo" className={styles.logo} />
             </footer>
           </div>
-        </div>
+        </Container>
+        
+        
+
     );
 }
