@@ -26,7 +26,7 @@ export default function MyEventCard(props) {
       "preco_hora": props.favorito.preco_hora,
       "bio": props.favorito.bio,
       "demo_video_url": props.favorito.demo_video_url, 
-      "incio": eventStartTime,
+      "inicio": eventStartTime,
       "data":eventDate,
       "duracao": eventDuration,
       "playlist": eventPlayList

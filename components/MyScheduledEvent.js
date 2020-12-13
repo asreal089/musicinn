@@ -64,7 +64,7 @@ export default function MyEventCard(props) {
                   <Card.Text>
                     Inicio do Evento: <br />
                     
-                    {props.evento.incio}
+                    {props.evento.inicio}
                   </Card.Text>
   
                   
