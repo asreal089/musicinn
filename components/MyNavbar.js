@@ -1,5 +1,4 @@
-import {Navbar,Nav} from 'react-bootstrap'
-import {Button} from 'react-bootstrap'
+import {Navbar,Nav, Button} from 'react-bootstrap'
 import FeatherIcon from 'feather-icons-react'
 import {signIn, signOut, useSession} from 'next-auth/client'
 

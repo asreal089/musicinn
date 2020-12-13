@@ -4,9 +4,18 @@ import React, { useState } from "react";
 import { useRouter } from 'next/router'
 import Iframe from 'react-iframe'
 import axios from 'axios'
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import { DateUtils } from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+import dateFnsFormat from 'date-fns/format';
+import dateFnsParse from 'date-fns/parse';
 
 export default function MyEventCard(props) {
     const router = useRouter()
+    const [eventDate, setEventDate] = useState('');
+    function handleDateChange(e){
+      setEventDate(e.target.value)
+    }
     async function saveEvent(){
       const axioscfg={ baseURL:process.env.SITE }
       const res = await axios.post('/api/favorito', { "nome": props.favorito.nome,
@@ -18,7 +27,18 @@ export default function MyEventCard(props) {
       
     }
 
-    
+    function parseDate(str, format, locale) {
+      const parsed = dateFnsParse(str, format, new Date(), { locale });
+      if (DateUtils.isDate(parsed)) {
+        return parsed;
+      }
+      return undefined;
+    }
+
+    function formatDate(date, format, locale) {
+      return dateFnsFormat(date, format, { locale });
+    }
+    const FORMAT = 'dd/MM/yyyy';
     return(
           <Container style={{alignContent:"center"}}>
             <Card style={{maxWidth:"400px"}}>
@@ -37,17 +57,16 @@ export default function MyEventCard(props) {
                 <Card.Text>
                   Preço por Hora: <b>R$ {props.favorito.preco_hora}</b>
                 </Card.Text>
-
-                {! props.is_favorite &&
-                <Button onClick={saveEvent} variant="primary">Adicionar aos favoritos</Button>
-                }
-                {
-                  props.is_favorite &&
-                  <Button onClick={removeEvent} variant="danger">Remover dos Favoritos</Button>
-                }
-                <br />
-                <br />
-                <Button variant="primary">Marcar evento</Button>
+                <DayPickerInput
+                formatDate={formatDate}
+                format={FORMAT}
+                parseDate={parseDate}
+                placeholder={`${dateFnsFormat(new Date(), FORMAT)}`}
+                onChange={handleDateChange}
+                />
+                <br /><br />
+                <Button onClick={saveEvent} variant="primary">Salvar</Button>
+                
               </Card.Body>
             </Card>
           </Container>
