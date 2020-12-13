@@ -15,11 +15,10 @@
     "mongodb": "^3.6.3",
     "next": "10.0.3",
     "next-auth": "^3.1.0",
-    "rc-datepicker": "^5.0.16",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
+    "react-bootstrap-range-slider": "^2.0.2",
     "react-datepicker": "^3.3.0",
-    "react-day-picker": "^7.4.8",
     "react-dom": "17.0.1",
     "react-iframe": "^1.8.0"
   }

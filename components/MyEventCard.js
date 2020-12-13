@@ -1,21 +1,22 @@
-import {Card, Button, Container} from 'react-bootstrap'
-import { useCallback, useEffect } from 'react'
-import React, { useState } from "react";
+import {Card, Button, Container, Form} from 'react-bootstrap'
+import RangeSlider from 'react-bootstrap-range-slider'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Iframe from 'react-iframe'
 import axios from 'axios'
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import { DateUtils } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
-import dateFnsFormat from 'date-fns/format';
-import dateFnsParse from 'date-fns/parse';
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function MyEventCard(props) {
     const router = useRouter()
-    const [eventDate, setEventDate] = useState('');
-    function handleDateChange(e){
-      setEventDate(e.target.value)
-    }
+    const [eventDate, setEventDate] = useState(new Date());
+    const [eventDuration, setEventDuration] = useState(0);
+
+    
+    console.log(eventDuration)
+    console.log(eventDate)
+
     async function saveEvent(){
       const axioscfg={ baseURL:process.env.SITE }
       const res = await axios.post('/api/favorito', { "nome": props.favorito.nome,
@@ -27,18 +28,7 @@ export default function MyEventCard(props) {
       
     }
 
-    function parseDate(str, format, locale) {
-      const parsed = dateFnsParse(str, format, new Date(), { locale });
-      if (DateUtils.isDate(parsed)) {
-        return parsed;
-      }
-      return undefined;
-    }
-
-    function formatDate(date, format, locale) {
-      return dateFnsFormat(date, format, { locale });
-    }
-    const FORMAT = 'dd/MM/yyyy';
+   
     return(
           <Container style={{alignContent:"center"}}>
             <Card style={{maxWidth:"400px"}}>
@@ -57,13 +47,21 @@ export default function MyEventCard(props) {
                 <Card.Text>
                   Preço por Hora: <b>R$ {props.favorito.preco_hora}</b>
                 </Card.Text>
-                <DayPickerInput
-                formatDate={formatDate}
-                format={FORMAT}
-                parseDate={parseDate}
-                placeholder={`${dateFnsFormat(new Date(), FORMAT)}`}
-                onChange={handleDateChange}
-                />
+
+                <Form>
+                <Form.Group controlId="formBasicRange">
+                  <Form.Label>Duração:</Form.Label>
+                  <RangeSlider
+                    value={eventDuration}
+                    onChange={changeEvent => setEventDuration(changeEvent.target.value)}
+                    min={1}
+                    max={10}
+                  />
+                  <DatePicker selected={eventDate} onChange={date => setEventDate(date)} />
+                </Form.Group>
+              </Form>
+              
+                
                 <br /><br />
                 <Button onClick={saveEvent} variant="primary">Salvar</Button>
                 

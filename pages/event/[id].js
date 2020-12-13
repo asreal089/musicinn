@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import MyNavbar from '../../components/MyNavbar'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Col, Row } from 'react-bootstrap'
 import { useRouter, withRouter } from "next/router";
 import axios from 'axios'
 import MyEventCard from '../../components/MyEventCard';
@@ -19,9 +19,15 @@ export default function event({favorito}) {
           
         </Head>
         <main className={styles.main}>
-          <Container fluid>
+          <Container >
             <h3 className="text-center" style={{marginTop: "32px"}}>Agendar evento:</h3>
-            <MyEventCard favorito={favorito}/>
+            <Row className="justify-content-md-center">
+
+              <Col md="auto">
+                <MyEventCard favorito={favorito}/>
+              </Col>
+          
+            </Row>
             
           </Container>
         </main>
