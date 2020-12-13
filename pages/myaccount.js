@@ -19,7 +19,7 @@ export default function myaccount({eventos}) {
             </Head>
             <main className={styles.main}>
               <Container fluid>
-                <h2 className="text-center" style={{margin: '32px'}}>Minha conta</h2>
+                <h2 className="text-center" style={{margin: '32px'}}>Meus Eventos:</h2>
                 
                 <Row className="justify-content-md-center">
 
